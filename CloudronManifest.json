@@ -2,7 +2,7 @@
     "id": "com.babahdigital.underconstruction",
     "title": "Babah Digital Under Construction",
     "httpPort": 80,
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Displays an 'Under Construction' page",
     "manifestVersion": 2,
     "healthCheckPath": "/"
