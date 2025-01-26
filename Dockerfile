@@ -1,16 +1,20 @@
 FROM nginx:alpine
 
-# Hapus skrip bawaan (opsional, agar tidak mengubah config bawaan)
+# 1) Hapus skrip entrypoint bawaan, agar tidak modifikasi apa pun
 RUN rm -rf /docker-entrypoint.d/*
 
-# Hapus/rename config bawaan agar Nginx hanya memakai nginx.conf kita
-RUN rm /etc/nginx/conf.d/default.conf
+# 2) Hapus config default bawaan (agar hanya pakai config kita)
+RUN rm -f /etc/nginx/conf.d/default.conf
 
-# Salin nginx.conf kustom
+# 3) Salin config nginx kustom -> /etc/nginx/nginx.conf
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
-# Salin semua file HTML ke /usr/share/nginx/html
-COPY . /usr/share/nginx/html/
+# 4) Salin file statis (index.html, assets, dsb.) ke /usr/share/nginx/html
+COPY index.html /usr/share/nginx/html/
+COPY assets/ /usr/share/nginx/html/assets/
 
+# 5) Expose port 80
 EXPOSE 80
+
+# 6) Jalankan Nginx (tanpa daemon)
 CMD ["nginx", "-g", "daemon off;"]
