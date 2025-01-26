@@ -7,7 +7,7 @@ RUN rm -rf /docker-entrypoint.d/*
 RUN rm /etc/nginx/conf.d/default.conf
 
 # Salin nginx.conf kustom
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY config/nginx.conf /etc/nginx/nginx.conf
 
 # Salin semua file HTML ke /usr/share/nginx/html
 COPY . /usr/share/nginx/html/
