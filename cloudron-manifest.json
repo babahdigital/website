@@ -1,6 +1,0 @@
-{
-    "id": "com.babahdigital.maintenance",
-    "title": "Babah Digital Under Maintenance",
-    "httpPort": 80,
-    "healthCheckPath": "/"
-  }
